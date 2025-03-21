@@ -7,19 +7,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0A192F;
-            color: white;
+            background-color: #F5F5F5;
+            color: #333;
             margin: 0;
             padding: 0;
         }
         a {
-            color: #64ffda;
+            color: #0A192F;
             text-decoration: none;
+            font-weight: bold;
         }
         header {
-            background-color: #112240;
+            background-color: #0A192F;
             padding: 20px;
             text-align: center;
+            color: white;
         }
         .container {
             width: 80%;
@@ -29,12 +31,11 @@
         section {
             margin-bottom: 50px;
             padding: 20px;
-            border-left: 3px solid #64ffda;
         }
         .nav {
             text-align: center;
             padding: 10px;
-            background-color: #112240;
+            background-color: #0A192F;
             position: fixed;
             width: 100%;
             top: 0;
@@ -44,11 +45,54 @@
         .nav a {
             margin: 0 15px;
             color: white;
-            font-weight: bold;
             cursor: pointer;
         }
         .nav a:hover {
             color: #64ffda;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        .close {
+            color: red;
+            font-size: 25px;
+            float: right;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -69,7 +113,7 @@
 </div>
 
 <div class="container">
-    
+
     <section id="education">
         <h2>Education</h2>
         <p><strong>Bachelor of Technology in Computer Science and Engineering</strong></p>
@@ -78,11 +122,20 @@
 
     <section id="projects">
         <h2>Projects</h2>
-        <ul>
-            <li><strong>Streamlining Citizen Experience with AI</strong> - <a href="https://github.com/789-raghu/Blixtra" target="_blank">GitHub Repo</a></li>
-            <li><strong>Google Calendar Events Viewer</strong> - <a href="https://github.com/S-S-Poojitha/calendaragent" target="_blank">GitHub Repo</a></li>
-            <li><strong>Carbon Trace</strong> - <a href="https://github.com/S-S-Poojitha/quarrycrew" target="_blank">GitHub Repo</a></li>
-        </ul>
+        <div class="card-container">
+            <div class="card" onclick="showModal('project1')">
+                <h3>Streamlining Citizen Experience with AI</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="card" onclick="showModal('project2')">
+                <h3>Google Calendar Events Viewer</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="card" onclick="showModal('project3')">
+                <h3>Carbon Trace</h3>
+                <p>Click to view details</p>
+            </div>
+        </div>
     </section>
 
     <section id="experience">
@@ -117,9 +170,47 @@
 
 </div>
 
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <a id="modal-link" target="_blank">View GitHub Repo</a>
+    </div>
+</div>
+
 <script>
     function scrollToSection(id) {
         document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showModal(project) {
+        let title, description, link;
+
+        if (project === "project1") {
+            title = "Streamlining Citizen Experience with AI";
+            description = "An AI-powered chatbot that streamlines citizen services.";
+            link = "https://github.com/789-raghu/Blixtra";
+        } else if (project === "project2") {
+            title = "Google Calendar Events Viewer";
+            description = "A tool to visualize Google Calendar events efficiently.";
+            link = "https://github.com/S-S-Poojitha/calendaragent";
+        } else if (project === "project3") {
+            title = "Carbon Trace";
+            description = "An application to track and reduce carbon footprints.";
+            link = "https://github.com/S-S-Poojitha/quarrycrew";
+        }
+
+        document.getElementById("modal-title").innerText = title;
+        document.getElementById("modal-description").innerText = description;
+        document.getElementById("modal-link").href = link;
+
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
     }
 </script>
 
