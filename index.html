@@ -3,59 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Resume</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Sadasivuni Sarvamangala Poojitha - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0A192F;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+        header {
+            background-color: #112240;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 50px;
+            padding: 20px;
+            border-left: 3px solid #64ffda;
+        }
+        .nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #112240;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .nav a {
+            margin: 0 15px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav a:hover {
+            color: #64ffda;
+        }
+    </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#internship">Internship</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#responsibility">Positions</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-        </ul>
-    </nav>
+
+<header>
+    <h1>Sadasivuni Sarvamangala Poojitha</h1>
+    <p>Computer Science and Engineering | Gayatri Vidya Parishad College of Engineering</p>
+</header>
+
+<div class="nav">
+    <a onclick="scrollToSection('education')">Education</a>
+    <a onclick="scrollToSection('projects')">Projects</a>
+    <a onclick="scrollToSection('experience')">Internship</a>
+    <a onclick="scrollToSection('skills')">Skills</a>
+    <a onclick="scrollToSection('positions')">Positions</a>
+    <a onclick="scrollToSection('achievements')">Achievements</a>
+</div>
+
+<div class="container">
     
     <section id="education">
         <h2>Education</h2>
-        <p>Bachelor of Technology in Computer Science and Engineering - CGPA: 9.25</p>
-        <p>Gayatri Vidya Parishad College of Engineering (2022-26)</p>
+        <p><strong>Bachelor of Technology in Computer Science and Engineering</strong></p>
+        <p>Gayatri Vidya Parishad College of Engineering (2022-26) | CGPA: 9.25</p>
     </section>
-    
+
     <section id="projects">
         <h2>Projects</h2>
         <ul>
-            <li><a href="https://github.com/789-raghu/Blixtra" target="_blank">Streamlining and automation of citizen experience with AI</a></li>
-            <li><a href="https://github.com/S-S-Poojitha/calendaragent" target="_blank">Google Calendar Events Viewer and Scheduler Agent</a></li>
-            <li><a href="https://github.com/S-S-Poojitha/quarrycrew" target="_blank">Carbon Trace</a></li>
+            <li><strong>Streamlining Citizen Experience with AI</strong> - <a href="https://github.com/789-raghu/Blixtra" target="_blank">GitHub Repo</a></li>
+            <li><strong>Google Calendar Events Viewer</strong> - <a href="https://github.com/S-S-Poojitha/calendaragent" target="_blank">GitHub Repo</a></li>
+            <li><strong>Carbon Trace</strong> - <a href="https://github.com/S-S-Poojitha/quarrycrew" target="_blank">GitHub Repo</a></li>
         </ul>
     </section>
-    
-    <section id="internship">
+
+    <section id="experience">
         <h2>Internship</h2>
-        <p>GenAI Internship at CloudKarya (May - June 2024)</p>
+        <p><strong>GenAI Internship @ CloudKarya</strong> (May - June 2024)</p>
+        <ul>
+            <li>Optimized prompt engineering techniques.</li>
+            <li>Collaborated with a team of 5 to deploy ML models.</li>
+        </ul>
     </section>
-    
+
     <section id="skills">
         <h2>Technical Skills</h2>
-        <p>Languages: C++, Python, Java, C, JavaScript, Bash, HTML, CSS, TypeScript</p>
-        <p>Frameworks: Angular, Bootstrap, Flask, LangChain, PyTorch</p>
+        <p><strong>Languages:</strong> C++, Python, Java, C, JavaScript</p>
+        <p><strong>Frameworks:</strong> Flask, LangChain, Angular</p>
+        <p><strong>Databases:</strong> MySQL, MongoDB</p>
     </section>
-    
-    <section id="responsibility">
+
+    <section id="positions">
         <h2>Positions of Responsibility</h2>
-        <p>Google Developer Student Clubs Core Team - Competitive Programming Lead (Oct '23 - Sept '24)</p>
-        <p>Networking Lead @ ASCI Club (Oct '24 - Present)</p>
+        <p>Google Developer Student Clubs Core Team - Competitive Programming Lead (2023-24)</p>
+        <p>Networking Lead @ ASCI Club (2024 - Present)</p>
     </section>
-    
+
     <section id="achievements">
         <h2>Achievements</h2>
-        <p>Flipkart Girls Wanna Code 6.0 Scholar (Selected among 14,000+ participants)</p>
-        <p><a href="https://www.codechef.com/users/sspoojitha" target="_blank">2-star Rating @ CodeChef</a></p>
-        <p>17th Position in Xtreme Encode, IEEE Xtreme 18.0 (Region 10)</p>
+        <ul>
+            <li>Flipkart Girls Wanna Code 6.0 Scholar (Top 14,000+)</li>
+            <li>17th Position in Xtreme Encode (IEEE Xtreme 18.0 - Region 10)</li>
+        </ul>
     </section>
+
+</div>
+
+<script>
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
