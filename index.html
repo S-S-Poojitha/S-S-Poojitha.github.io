@@ -28,10 +28,27 @@
             margin: auto;
             padding: 20px;
         }
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        section {
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+        .nav {
+            text-align: center;
+            padding: 10px;
+            background-color: #0A192F;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .nav a {
+            margin: 0 15px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav a:hover {
+            color: #64ffda;
         }
         .card {
             background: white;
@@ -42,10 +59,40 @@
             text-align: center;
             transition: 0.3s;
             cursor: pointer;
-            width: 250px;
         }
         .card:hover {
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+        .close {
+            color: red;
+            font-size: 25px;
+            float: right;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -56,83 +103,116 @@
     <p>Computer Science and Engineering | Gayatri Vidya Parishad College of Engineering</p>
 </header>
 
+<div class="nav">
+    <a onclick="scrollToSection('education')">Education</a>
+    <a onclick="scrollToSection('projects')">Projects</a>
+    <a onclick="scrollToSection('experience')">Internship</a>
+    <a onclick="scrollToSection('skills')">Skills</a>
+    <a onclick="scrollToSection('positions')">Positions</a>
+    <a onclick="scrollToSection('achievements')">Achievements</a>
+</div>
+
 <div class="container">
-    
+
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>Bachelor of Technology in Computer Science and Engineering</strong></p>
+        <p>Gayatri Vidya Parishad College of Engineering (2022-26) | CGPA: 9.25</p>
+    </section>
+
     <section id="projects">
         <h2>Projects</h2>
         <div class="card-container">
-            <div class="card">Streamlining Citizen Experience with AI</div>
-            <div class="card">Google Calendar Events Viewer</div>
-            <div class="card">Carbon Trace</div>
+            <div class="card" onclick="showModal('project1')">
+                <h3>Streamlining Citizen Experience with AI</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="card" onclick="showModal('project2')">
+                <h3>Google Calendar Events Viewer</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="card" onclick="showModal('project3')">
+                <h3>Carbon Trace</h3>
+                <p>Click to view details</p>
+            </div>
         </div>
     </section>
 
-    <section id="internships">
+    <section id="experience">
         <h2>Internship</h2>
-        <div class="card-container">
-            <div class="card">GenAI Internship @ CloudKarya</div>
-        </div>
+        <p><strong>GenAI Internship @ CloudKarya</strong> (May - June 2024)</p>
+        <ul>
+            <li>Optimized prompt engineering techniques.</li>
+            <li>Collaborated with a team of 5 to deploy ML models.</li>
+        </ul>
     </section>
-    
-   <section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3>Languages</h3>
-            <p>C++, Python, Java, C, JavaScript, Bash, HTML, CSS, TypeScript</p>
-        </div>
-        <div class="card">
-            <h3>Web Dev Tools & Services</h3>
-            <p>Microsoft Office Suite, Node.js, VS Code, Git, GitHub</p>
-        </div>
-        <div class="card">
-            <h3>Frameworks</h3>
-            <p>Angular, Bootstrap, Flask</p>
-        </div>
-        <div class="card">
-            <h3>Databases</h3>
-            <p>MySQL, MongoDB</p>
-        </div>
-        <div class="card">
-            <h3>Soft Skills</h3>
-            <p>Problem Solving, Self-learning, Presentation, Adaptability, Attention to detail</p>
-        </div>
-        <div class="card">
-            <h3>Operating Systems</h3>
-            <p>Linux (Ubuntu, Kali), Windows</p>
-        </div>
-        <div class="card">
-            <h3>Containerization & DevOps</h3>
-            <p>Docker, CI/CD, Kubernetes</p>
-        </div>
-        <div class="card">
-            <h3>Testing Tools</h3>
-            <p>Selenium</p>
-        </div>
-        <div class="card">
-            <h3>Agile Tools</h3>
-            <p>Jira, Confluence</p>
-        </div>
-    </div>
-</section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <p><strong>Languages:</strong> C++, Python, Java, C, JavaScript</p>
+        <p><strong>Frameworks:</strong> Flask, LangChain, Angular</p>
+        <p><strong>Databases:</strong> MySQL, MongoDB</p>
+    </section>
 
     <section id="positions">
         <h2>Positions of Responsibility</h2>
-        <div class="card-container">
-            <div class="card">GDSC Core Team - CP Lead</div>
-            <div class="card">Networking Lead @ ASCI Club</div>
-        </div>
+        <p>Google Developer Student Clubs Core Team - Competitive Programming Lead (2023-24)</p>
+        <p>Networking Lead @ ASCI Club (2024 - Present)</p>
     </section>
 
     <section id="achievements">
         <h2>Achievements</h2>
-        <div class="card-container">
-            <div class="card">Flipkart Girls Wanna Code Scholar</div>
-            <div class="card">17th Position in Xtreme Encode</div>
-        </div>
+        <ul>
+            <li>Flipkart Girls Wanna Code 6.0 Scholar (Top 14,000+)</li>
+            <li>17th Position in Xtreme Encode (IEEE Xtreme 18.0 - Region 10)</li>
+        </ul>
     </section>
 
 </div>
+
+<!-- Modal Structure -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description"></p>
+        <a id="modal-link" target="_blank">View GitHub Repo</a>
+    </div>
+</div>
+
+<script>
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showModal(project) {
+        let title, description, link;
+
+        if (project === "project1") {
+            title = "Streamlining Citizen Experience with AI";
+            description = "An AI-powered chatbot that streamlines citizen services.";
+            link = "https://github.com/789-raghu/Blixtra";
+        } else if (project === "project2") {
+            title = "Google Calendar Events Viewer";
+            description = "A tool to visualize Google Calendar events efficiently.";
+            link = "https://github.com/S-S-Poojitha/calendaragent";
+        } else if (project === "project3") {
+            title = "Carbon Trace";
+            description = "An application to track and reduce carbon footprints.";
+            link = "https://github.com/S-S-Poojitha/quarrycrew";
+        }
+
+        document.getElementById("modal-title").innerText = title;
+        document.getElementById("modal-description").innerText = description;
+        document.getElementById("modal-link").href = link;
+
+        document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+    }
+</script>
 
 </body>
 </html>
