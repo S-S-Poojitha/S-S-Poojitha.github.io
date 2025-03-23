@@ -1,218 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadasivuni Sarvamangala Poojitha - Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F5F5F5;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        a {
-            color: #0A192F;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        header {
-            background-color: #0A192F;
-            padding: 20px;
-            text-align: center;
-            color: white;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-        }
-        section {
-            margin-bottom: 50px;
-            padding: 20px;
-        }
-        .nav {
-            text-align: center;
-            padding: 10px;
-            background-color: #0A192F;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .nav a {
-            margin: 0 15px;
-            color: white;
-            cursor: pointer;
-        }
-        .nav a:hover {
-            color: #64ffda;
-        }
-        .card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 15px;
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .card:hover {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 50%;
-            text-align: center;
-        }
-        .close {
-            color: red;
-            font-size: 25px;
-            float: right;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS Engineer Portfolio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <link href="./output.css" rel="stylesheet">
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+    .cursor::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .bg-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .profile-image {
+      border: 4px solid rgba(59, 130, 246, 0.5);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .profile-image:hover {
+      box-shadow: 0 0 30px rgba(138, 43, 226, 0.7), 
+                  0 0 40px rgba(59, 130, 246, 0.4), 
+                  0 0 20px rgba(16, 185, 129, 0.4);
+    }
+    
+    .profile-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .profile-image:hover {
+      width: 400px; /* Full-body image size */
+      height: 400px;
+      border-radius: 0; /* Remove rounded effect */
+    }
+
+
+    .menu-hidden {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .menu-visible {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Hovering icons around the profile image */
+    .icon-wrapper {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      animation: float 3s infinite ease-in-out alternate;
+    }
+
+    .icon-wrapper img {
+      width: 30px;
+      height: 30px;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    #Scrollcontainer::-webkit-scrollbar{
+      display: none;
+    }
+    section {
+  min-height: 80vh; /* Takes full viewport height */
+}
+
+  </style>
 </head>
-<body>
+<body class="bg-gray-900 text-white">
+  <!-- Navigation Bar -->
+  <nav class="fixed w-full bg-glass z-50">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="#" class="text-xl font-bold gradient-text">DevPortfolio</a>
 
-<header>
-    <h1>Sadasivuni Sarvamangala Poojitha</h1>
-    <p>Computer Science and Engineering | Gayatri Vidya Parishad College of Engineering</p>
-</header>
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="hover:text-blue-400 transition duration-300">Home</a>
+        <a href="#About" class="hover:text-blue-400 transition duration-300">About</a>
+        <a href="#projects" class="hover:text-blue-400 transition duration-300">Projects</a>
+        <a href="#skills" class="hover:text-blue-400 transition duration-300">Skills</a>
+        <a href="#experience" class="hover:text-blue-400 transition duration-300">Experience</a>
+        <a href="#contact" class="hover:text-blue-400 transition duration-300">Contact</a>
+      </div>
 
-<div class="nav">
-    <a onclick="scrollToSection('education')">Education</a>
-    <a onclick="scrollToSection('projects')">Projects</a>
-    <a onclick="scrollToSection('experience')">Internship</a>
-    <a onclick="scrollToSection('skills')">Skills</a>
-    <a onclick="scrollToSection('positions')">Positions</a>
-    <a onclick="scrollToSection('achievements')">Achievements</a>
-</div>
-
-<div class="container">
-
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>Bachelor of Technology in Computer Science and Engineering</strong></p>
-        <p>Gayatri Vidya Parishad College of Engineering (2022-26) | CGPA: 9.25</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="card-container">
-            <div class="card" onclick="showModal('project1')">
-                <h3>Streamlining Citizen Experience with AI</h3>
-                <p>Click to view details</p>
-            </div>
-            <div class="card" onclick="showModal('project2')">
-                <h3>Google Calendar Events Viewer</h3>
-                <p>Click to view details</p>
-            </div>
-            <div class="card" onclick="showModal('project3')">
-                <h3>Carbon Trace</h3>
-                <p>Click to view details</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <h2>Internship</h2>
-        <p><strong>GenAI Internship @ CloudKarya</strong> (May - June 2024)</p>
-        <ul>
-            <li>Optimized prompt engineering techniques.</li>
-            <li>Collaborated with a team of 5 to deploy ML models.</li>
-        </ul>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <p><strong>Languages:</strong> C++, Python, Java, C, JavaScript</p>
-        <p><strong>Frameworks:</strong> Flask, LangChain, Angular</p>
-        <p><strong>Databases:</strong> MySQL, MongoDB</p>
-    </section>
-
-    <section id="positions">
-        <h2>Positions of Responsibility</h2>
-        <p>Google Developer Student Clubs Core Team - Competitive Programming Lead (2023-24)</p>
-        <p>Networking Lead @ ASCI Club (2024 - Present)</p>
-    </section>
-
-    <section id="achievements">
-        <h2>Achievements</h2>
-        <ul>
-            <li>Flipkart Girls Wanna Code 6.0 Scholar (Top 14,000+)</li>
-            <li>17th Position in Xtreme Encode (IEEE Xtreme 18.0 - Region 10)</li>
-        </ul>
-    </section>
-
-</div>
-
-<!-- Modal Structure -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modal-title"></h2>
-        <p id="modal-description"></p>
-        <a id="modal-link" target="_blank">View GitHub Repo</a>
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-</div>
 
-<script>
-    function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="menu-hidden absolute bg-gray-800 w-full left-0 top-full text-center py-4 md:hidden">
+      <a href="#" class="block py-2 hover:text-blue-400">Home</a>
+      <a href="#About" class="block py-2 hover:text-blue-400">Home</a>
+      <a href="#projects" class="block py-2 hover:text-blue-400">Projects</a>
+      <a href="#skills" class="block py-2 hover:text-blue-400">Skills</a>
+      <a href="#experience" class="block py-2 hover:text-blue-400">Experience</a>
+      <a href="#contact" class="block py-2 hover:text-blue-400">Contact</a>
+    </div>
+  </nav>
+
+  <section id = '#'>
+  <div class="min-h-screen flex items-center px-6 relative overflow-hidden">
+    <div class="container mx-auto z-10 pt-20">
+      <div class="pl-10 flex flex-col md:flex-row items-center justify-between">
+        <!-- Left side text content -->
+        <div class="pr-5 w-full md:w-1/2 md:pr-8 text-center sm:text-center md:text-left mb-10 md:mb-0">
+          <p class="text-blue-400 font-medium mb-2">Hello World, I'm</p>
+          <h1 class="text-4xl md:text-6xl font-bold mb-4">
+            <span class="gradient-text">Sadasivuni Sarvamangala Appalamma</span>
+          </h1>
+          <div class="text-xl md:text-2xl mb-8 h-8 flex justify-center md:justify-start">
+            <span id="typing-text"></span>
+          </div>
+          <p class="text-gray-300 mb-10">Passionate about building elegant solutions to complex problems.</p>
+
+          <div class="pr-5 flex space-x-10">
+            <div>
+              <div>
+                <span class="text-4xl">100+</span>
+              </div>
+              <span class="text-2xl">Projects</span>
+            </div>
+            <div>
+              <div><span class="text-4xl">500+</span></div>
+              <span class="text-2xl">Years</span>
+            </div>
+          </div>
+          <div class="pt-6 flex space-x-4">
+            <a href="#projects" class="px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full font-medium transition duration-300 hover:shadow-lg text-center">View Projects</a>
+            <a href="#" class="px-8 py-3 border border-blue-500 text-blue-400 rounded-full font-medium transition duration-300 hover:shadow-lg text-center">Contact Me</a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 flex justify-center relative">
+          <div class="relative">
+            <img src="https://theforage.wpengine.com/wp-content/uploads/2022/09/what-is-a-web-developer-1536x1025.jpg" alt="John Doe" class="w-64 h-64 rounded-full object-cover profile-image" />
+            <div class="icon-wrapper" style="top: -30px; left: -40px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5 Icon">
+            </div>
+            <div class="icon-wrapper" style="bottom: -30px; right: -40px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/919/919826.png" alt="JavaScript Icon">
+            </div>
+            <div class="icon-wrapper" style="top: 30px; right: -50px;">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3 Icon">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section data-scroll-index="1" class="section about-section border-t border-gray-300 py-16 bg-gray-900 text-white" id="About">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-12 grid-cols-1 gap-6">
+        
+        <!-- Left Section (Image & Social Icons) -->
+        <div class="md:col-span-5 lg:col-span-6 relative">
+          <div class="about-img-box lg:sticky lg:top-[120px]">
+            <div class="about-img flex justify-center">
+              <img src="./logo/new_dp.png" title="dp" alt="dp" class="rounded-lg shadow-lg w-64 h-64 object-cover">
+            </div>
+            <div class="flex justify-center space-x-4 mt-4">
+              <a class="text-blue-500 hover:text-blue-700 text-2xl" href="https://www.facebook.com/rsvs.viswath">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a class="text-pink-500 hover:text-pink-700 text-2xl" href="https://www.instagram.com/viswath.me">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="text-blue-400 hover:text-blue-600 text-2xl" href="https://www.linkedin.com/in/r-viswath-8106a2233/">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Right Section (Details) -->
+        <div class="md:col-span-7 lg:col-span-6 pt-5 md:pl-16">
+          <div class="about-text">
+            
+            <!-- Biography -->
+            <div class="about-row mb-6">
+              <h3 class="text-2xl font-semibold mb-2">Biography</h3>
+              <div class="h-1 w-24 bg-indigo-600 mb-2"></div>
+              <p class="text-lg">I'm a passionate designer who loves creating engaging user experiences. With expertise in web designing, I bring creativity and technical skills together to deliver visually impressive and functional solutions.</p>
+            </div>
+  
+            <!-- Education -->
+            <div class="about-row mb-6">
+              <h3 class="text-2xl font-semibold mb-2">Education</h3>
+              <div class="h-1 w-24 bg-indigo-600 mb-2"></div>
+              <div class="grid grid-cols-12 gap-5 sm:gap-8">
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">Intermediate</h5>
+                  <a href="https://adityauniversity.in/" target="_blank" class="text-blue-400 hover:underline">
+                    <p>At Accent junior college</p>
+                  </a>
+                  <small class="text-gray-400">2020-2022</small>
+                </div>
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">B.Tech in CSE (AI & ML)</h5>
+                  <a href="https://gvpce.ac.in/" target="_blank" class="text-blue-400 hover:underline">
+                    <p>At Gayatri Vidya Parishad</p>
+                  </a>
+                  <small class="text-gray-400">August 2022 — Present</small>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Experience -->
+            <div class="about-row mb-6">
+              <h3 class="text-2xl font-semibold mb-2">Roles and Responsibilities</h3>
+              <div class="h-1 w-24 bg-indigo-600 mb-2"></div>
+              <div class="grid grid-cols-12 gap-6">
+                
+                <!-- GEN AI INTERN -->
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">GenAI Intern</h5>
+                  <p>At Cloud Karya</p>
+                  <small class="text-gray-400">Apr 2024 — Jun 2024</small>
+                </div>
+            
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">C .P .Lead</h5>
+                  <p>Google Developer Student Clubs (GDSC)</p>
+                  <small class="text-gray-400">2023 - 2024</small>
+                </div>
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">Networking Lead</h5>
+                  <p>At ASCI Club</p>
+                  <small class="text-gray-400">2024 - Present</small>
+                </div>
+            
+              </div>
+            </div>
+            
+            <div class="about-row mb-6">
+              <h3 class="text-2xl font-semibold mb-2">Achievements</h3>
+              <div class="h-1 w-24 bg-indigo-600 mb-2"></div>
+              <div class="grid grid-cols-12 gap-6">
+                
+                <!-- Flipkart Girls Wanna Code 6.0 -->
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">Flipkart Girls Wanna Code 6.0 Scholar</h5>
+                  <p>Ranked in the Top 14,000+</p>
+                </div>
+            
+                <!-- IEEE Xtreme 18.0 -->
+                <div class="col-span-6">
+                  <h5 class="text-lg font-semibold">17th Position in Xtreme Encode</h5>
+                  <p>IEEE Xtreme 18.0 - Region 10</p>
+                </div>
+            
+              </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="about-row">
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-6">
+                  <h3 class="text-2xl font-semibold mb-2">Programming Skills</h3>
+                  <ul class="list-disc list-inside text-lg">
+                    <li>JavaScript</li>
+                    <li>MongoDB</li>
+                    <li>SQL</li>
+                    <li>Python</li>
+                    <li>HTML/CSS</li>
+                    <li>JAVA</li>
+                    <li>jQuery</li>
+                    <li>C/C++</li>
+                  </ul>
+                </div>
+                <div class="col-span-6">
+                  <h3 class="text-2xl font-semibold mb-2">Frameworks & Tools</h3>
+                  <ul class="list-disc list-inside text-lg">
+                    <li>Flask</li>
+                    <li>AngularJS</li>
+                    <li>Nodejs</li>
+                    <li>Bootstrap</li>
+                    <li>Tailwind</li>
+                    <li>React</li>
+                    <li>Tensorflow</li>
+                    <li>Pytorch</li>
+                  </ul>
+                </div>
+              </div>
+  
+              <!-- Resume Button -->
+              <div class="mt-6">
+                <a href="placeholderforresume" class="text-blue-500 hover:underline text-lg font-semibold flex items-center">
+                  Browse Resume <i class="bi bi-arrow-up-right ml-2"></i>
+                </a>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <h2 class = 'text-4xl text-center mb-1'>Projects</h2>
+    <div class="h-1 w-24 bg-indigo-600 mx-auto"></div>
+    <div class="relative m-10">
+      <!-- Scrollable Container -->
+      <div class="flex gap-6 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 p-4" id = 'Scrollcontainer'>
+        <!-- Project 1 -->
+        <div class="w-[30vw] bg-gray-500 rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+          <div class="w-full h-48 overflow-hidden">
+            <img src="data:image/jpeg;base64,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" alt="Project Image"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-4 text-white">
+            <h1 class="text-lg font-semibold">AI-Powered Citizen Services</h1>
+            <p class="text-sm text-gray-300">Short project description goes here.</p>
+          </div>
+        </div>
+    
+        <!-- Project 2 -->
+        <div class="w-[30vw] bg-gray-500 rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+          <div class="w-full h-48 overflow-hidden">
+            <img src="https://9to5google.com/wp-content/uploads/sites/4/2024/09/Google-Calendar-new-illustrations.jpg?quality=82&strip=all" alt="Project Image"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-4 text-white text-center">
+            <h1 class="text-lg font-semibold">TimeFrame</h1>
+            <p class="text-sm text-gray-300">Short project description goes here.</p>
+          </div>
+        </div>
+    
+        <!-- Project 3 -->
+        <div class="w-[30vw] bg-gray-500 rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+          <div class="w-full h-48 overflow-hidden">
+            <img src="https://amplussolar.com/blog/wp-content/uploads/2025/01/Benefits-of-Renewable-Energy.jpg" alt="Project Image"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-4 text-white text-center">
+            <h1 class="text-lg font-semibold">CarbonScope</h1>
+            <p class="text-sm text-gray-300">Short project description goes here.</p>
+          </div>
+        </div>
+        <div class="w-[30vw] bg-gray-500 rounded-lg overflow-hidden shadow-lg flex-shrink-0">
+          <div class="w-full h-48 overflow-hidden">
+            <img src="https://t4.ftcdn.net/jpg/02/46/06/15/240_F_246061539_ql29APqVTwZCpczv39nyEJLEXm1yWyvD.jpg" alt="Project Image"
+              class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+          </div>
+          <div class="p-4 text-white text-center">
+            <h1 class="text-lg font-semibold">Customer services</h1>
+            <p class="text-sm text-gray-300">Short project description goes here.</p>
+          </div>
+        </div>
+      </div>
+    </div> 
+    </section>
+
+    <section id = 'skills'>
+      <h1 class="text-4xl text-center">Skills</h1>
+      <div class="h-1 w-24 bg-indigo-600 mx-auto"></div>
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 justify-center text-center gap-y-8 mt-10">
+    
+        <div>
+            <img src="./HTML5.svg" alt="HTML5" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">HTML5</p>
+        </div>
+        <div>
+            <img src="./CSS3.svg" alt="CSS3" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">CSS3</p>
+        </div>
+        <div>
+            <img src="./Tailwind CSS.svg" alt="Tailwind CSS" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Tailwind CSS</p>
+        </div>
+        <div>
+            <img src="./Bootstrap.svg" alt="Bootstrap" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Bootstrap</p>
+        </div>
+        <div>
+            <img src="./JavaScript.svg" alt="JavaScript" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">JavaScript</p>
+        </div>
+    
+        <div>
+            <img src="./C.svg" alt="C" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">C</p>
+        </div>
+        <div>
+            <img src="./C++ (CPlusPlus).svg" alt="C++" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">C++</p>
+        </div>
+        <div>
+            <img src="./Python.svg" alt="Python" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Python</p>
+        </div>
+        <div>
+            <img src="./Java.svg" alt="Java" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Java</p>
+        </div>
+    
+        <!-- Data Science Libraries -->
+        <div>
+            <img src="./NumPy.svg" alt="NumPy" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">NumPy</p>
+        </div>
+        <div>
+            <img src="./Pandas.svg" alt="Pandas" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Pandas</p>
+        </div>
+        <div>
+            <img src="./Matplotlib.svg" alt="Matplotlib" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Matplotlib</p>
+        </div>
+        <div>
+            <img src="./TensorFlow.svg" alt="TensorFlow" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">TensorFlow</p>
+        </div>
+        <div>
+            <img src="./PyTorch.svg" alt="PyTorch" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">PyTorch</p>
+        </div>
+        <div>
+            <img src="./Streamlit.svg" alt="Streamlit" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Streamlit</p>
+        </div>
+    
+        <!-- Databases -->
+        <div>
+            <img src="./MySQL.svg" alt="MySQL" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">MySQL</p>
+        </div>
+        <div>
+            <img src="./MongoDB.svg" alt="MongoDB" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">MongoDB</p>
+        </div>
+        <div>
+            <img src="./Flask.svg" alt="Flask" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Flask</p>
+        </div>
+    
+        <!-- Version Control -->
+        <div>
+            <img src="./Git.svg" alt="Git" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">Git</p>
+        </div>
+        <div>
+            <img src="./GitHub.svg" alt="GitHub" class="h-16 w-auto mx-auto">
+            <p class="text-sm mt-2">GitHub</p>
+        </div>
+    
+    </div>
+    
+    </section>
+
+    <section id="experience" class="py-16">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-2">Experience</h2>
+        <div class="h-1 w-24 bg-indigo-600 mx-auto mb-12"></div>
+        <div class="shadow-lg rounded-lg p-6 mb-8 w-auto bg-gray-500">
+          <h3 class="text-xl font-semibold">GenAI Internship @ CloudKarya</h3>
+          <p class="text-sm">(May – June 2024)</p>
+          <ul class="mt-4 list-disc list-inside">
+            <li>Optimized <strong>prompt engineering</strong> techniques to enhance LLM performance.</li>
+            <li>Collaborated with a <strong>team of 5</strong> to deploy ML models efficiently.</li>
+            <li>Integrated <strong>Streamlit</strong> and <strong>Google Cloud Console</strong> for AI-driven applications.</li>
+            <li>Developed <strong>automated workflows</strong> for recruitment using LLMs, reducing manual effort by 60%.</li>
+            <li>Performed <strong>data preprocessing</strong> and analysis to improve model accuracy.</li>
+            <li>Enhanced chatbot interactions and optimized <strong>API responses</strong> for better UX.</li>
+          </ul>
+        </div>
+    
+      </div>
+    </section>
+
+
+  <section id="contact" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+        <div class="h-1 w-24 bg-indigo-600 mx-auto"></div>
+        <p class="mt-6 max-w-2xl mx-auto">Have questions or want to learn more? We'd love to hear from you. Fill out the form below and our team will get back to you shortly.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="bg-gray-700 rounded-lg p-8 shadow-md">
+          <form class="bg-gray-700">
+            <div class="mb-6">
+              <label for="name" class="block mb-2 bg-gray-700">Your Name</label>
+              <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700">
+            </div>
+            <div class="mb-6">
+              <label for="email" class="block mb-2">Email Address</label>
+              <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700">
+            </div>
+            <div class="mb-6">
+              <label for="subject" class="block mb-2">Subject</label>
+              <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700">
+            </div>
+            <div class="mb-6">
+              <label for="message" class="block mb-2">Your Message</label>
+              <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-700"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 font-medium">Send Message</button>
+          </form>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="flex flex-col justify-center">
+          <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4">Our Office</h3>
+            <p>123 Innovation Drive</p>
+            <p>San Francisco, CA 94103</p>
+          </div>
+          
+          <div class="mb-8">
+            <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+            <p class=" mb-2">Email: hello@company.com</p>
+            <p class="mb-2">Phone: +1 (555) 123-4567</p>
+            <p>Hours: Monday - Friday, 9am - 5pm PST</p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-4">Connect With Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <!-- Main Footer -->
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div class="col-span-1">
+          <div class="mb-6">
+            <h3 class="text-2xl font-bold mb-2">Company</h3>
+            <p class="text-gray-400 mt-3">Creating innovative solutions for tomorrow's challenges.</p>
+          </div>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="col-span-1">
+          <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+            <li><a href="#About" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+            <li><a href="#skills" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+            <li><a href="#projects" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div class="col-span-1">
+          <h3 class="text-xl font-bold mb-4">Our Services</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web Development</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mobile App Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Digital Marketing</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Brand Strategy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SEO Optimization</a></li>
+          </ul>
+        </div>
+        
+        <!-- Newsletter -->
+        <div class="col-span-1">
+          <h3 class="text-xl font-bold mb-4">Stay Updated</h3>
+          <p class="text-gray-400 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+          <form class="flex flex-col space-y-3">
+            <input type="email" placeholder="Your Email Address" class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button type="submit" class="bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Footer -->
+    <div class="border-t border-gray-800">
+      <div class="max-w-6xl mx-auto px-4 py-6">
+        <div class="md:flex md:items-center md:justify-between">
+          <div class="text-sm text-gray-400">
+            <p>&copy; 2025 Company Name. All rights reserved.</p>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <ul class="flex space-x-6">
+              <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-300">Privacy Policy</a></li>
+              <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-300">Terms of Service</a></li>
+              <li><a href="#" class="text-sm text-gray-400 hover:text-white transition duration-300">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script>
+    let sections = document.querySelectorAll("section");
+    let currentIndex = 0;
+  function scrollDown() {
+    if (currentIndex < sections.length - 1) {
+      currentIndex++;
+      sections[currentIndex].scrollIntoView({ behavior: "smooth" });
     }
+  }
 
-    function showModal(project) {
-        let title, description, link;
-
-        if (project === "project1") {
-            title = "Streamlining Citizen Experience with AI";
-            description = "An AI-powered chatbot that streamlines citizen services.";
-            link = "https://github.com/789-raghu/Blixtra";
-        } else if (project === "project2") {
-            title = "Google Calendar Events Viewer";
-            description = "A tool to visualize Google Calendar events efficiently.";
-            link = "https://github.com/S-S-Poojitha/calendaragent";
-        } else if (project === "project3") {
-            title = "Carbon Trace";
-            description = "An application to track and reduce carbon footprints.";
-            link = "https://github.com/S-S-Poojitha/quarrycrew";
-        }
-
-        document.getElementById("modal-title").innerText = title;
-        document.getElementById("modal-description").innerText = description;
-        document.getElementById("modal-link").href = link;
-
-        document.getElementById("modal").style.display = "flex";
+  function scrollUp() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      sections[currentIndex].scrollIntoView({ behavior: "smooth" });
     }
+  }
+    new Typed("#typing-text", {
+      strings: ["Full Stack Developer", "Machine Learning Enthusiast", "Software Engineer"],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
 
-    function closeModal() {
-        document.getElementById("modal").style.display = "none";
-    }
-</script>
-
+    // Toggle mobile menu
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("menu-hidden");
+      menu.classList.toggle("menu-visible");
+    });
+  </script>
 </body>
 </html>
